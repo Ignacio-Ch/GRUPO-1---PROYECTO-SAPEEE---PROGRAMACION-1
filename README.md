@@ -8,3 +8,5 @@ Alumnos participantes:
   - Crozet, Manuel
   - Lussoro, Matias
   - Virili Sosa, Gianluca
+
+
