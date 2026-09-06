@@ -40,3 +40,35 @@ def pedir_tipo_vehiculo():
     else:
         print("Opción inválida. Debe ser 1, 2 o 3.")
         return None
+
+#SECCION 3: OPCIONES DEL MENU
+
+# Opción 1: registra el ingreso de un vehículo al estacionamiento
+def opcion_registrar_ingreso(matriz, registros):
+    patente = pedir_patente()
+    if patente == None:
+        return
+
+    tipo = pedir_tipo_vehiculo()
+    if tipo == None:
+        return
+
+    ok, datos = est.registrar_ingreso(matriz, registros, patente, tipo)
+    if ok == True:
+        fila, columna = datos
+        print("Ingreso registrado. Espacio asignado: fila", fila, ", columna", columna)
+    else:
+        print("No se pudo registrar el ingreso:", datos)
+
+
+# Opción 2: registra el egreso de un vehículo y muestra el ticket
+def opcion_registrar_egreso(matriz, registros, historial):
+    patente = pedir_patente()
+    if patente == None:
+        return
+
+    ok, datos = est.registrar_egreso(matriz, registros, historial, patente)
+    if ok == True:
+        vista.mostrar_ticket(datos)
+    else:
+        print("No se pudo registrar el egreso:", datos)
